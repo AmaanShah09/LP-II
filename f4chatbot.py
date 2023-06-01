@@ -1,69 +1,29 @@
-def greet():
-    print("Hello! How can I assist you today?")
-
-def get_customer_name():
-    print("May I know your name, please?")
-    name = input()
-    print(f"Nice to meet you, {name}!")
-
-def greet(bot_name, birth_year):
-    print(f"Hello! My name is {bot_name}.")
-    print(f"I was created in {birth_year}.")
-
-def age():
-    print("May I know your age, please?")
-    age = input()
-    print(f"Hello! Your age is {age}.")
-def handle_customer_inquiry():
-    print("What can I help you with?")
-    inquiry = input()
-    print(f"I'm sorry, {inquiry} is beyond my capabilities.")
-
-def thank_customer():
-    print("Thank you for reaching out. Have a great day!")
-
-# Chatbot main function
-def chatbot():
-    greet('Sbot', '2021')
-    get_customer_name()
-    age()
-    handle_customer_inquiry()
-    thank_customer()
-
-# Run the chatbot
-chatbot()
-
-"""
-def hospital_management_system():
-    print("Welcome to the Hospital Management System.")
-
-    # Symptom input
-    print("Please enter your symptoms, one at a time (type 'done' when finished):")
-    symptoms = []
-    while True:
-        symptom = input()
-        if symptom.lower() == 'done':
-            break
-        symptoms.append(symptom)
-
-    # Diagnosis based on symptoms
-    if 'fever' in symptoms and 'cough' in symptoms:
-        diagnosis = 'You may have a common cold.'
+responses = {
+    "hey": "Hello! How can I assist you today?",
+    "hello": "Hello! How can I assist you today?",
+    "hi": "Hello! How can I assist you today?",
+    "how are you?": "I'm doing well, thank you! How about you?",
+    "i am fine": "Great",
+    "i need help": "Of course! I'm here to help. What do you need assistance with?",
+    "pricing": "For pricing information, please visit our website or contact our sales team at sales@example.com.",
+    "order status": "To check the status of your order, please provide your order number and we will assist you.",
+    "product information": "Our products are designed to provide high quality and exceptional performance. Is there any specific product you would like information about?",
+    "payment options": "We offer various payment options, including credit cards, PayPal, and bank transfers.",
+    "shipping information": "Our standard shipping time is 3-5 business days. Express shipping options are also available.",
+    "return policy": "Our return policy allows returns within 30 days of purchase. Please ensure the product is in its original condition and packaging.",
+    "account registration": "To create an account, please visit our website and click on the 'Register' button.",
+    "password reset": "To reset your password, please click on the 'Forgot password' link on the login page and follow the instructions.",
+    "technical support": "For technical support, please contact our support team at support@example.com or call our helpline at +1-123-456-7890.",
+    "discounts and promotions": "We frequently offer discounts and promotions. Please subscribe to our newsletter to stay updated.",
+    "order cancellation": "To cancel your order, please contact our customer service as soon as possible with your order details.",
+    "default": "I'm sorry, I didn't understand. Could you please rephrase?"
+}
+while True:
+    user_input = input("User: ")
+    user_input = user_input.lower()
+    if user_input in responses:
+        print("ChatBot:", responses[user_input])
+    elif user_input == "exit":
+        exit()
     else:
-        diagnosis = 'Unable to diagnose your condition based on provided symptoms.'
-
-    # Treatment recommendation based on diagnosis
-    if 'common cold' in diagnosis:
-        treatment = 'Get plenty of rest, drink fluids, and take over-the-counter cold medication.'
-    else:
-        treatment = 'Please consult a doctor for further evaluation and treatment.'
-
-    # Display diagnosis and treatment recommendation
-    print("Diagnosis:", diagnosis)
-    print("Treatment Recommendation:", treatment)
-
-    print("Thank you for using the Hospital Management System.")
-
-hospital_management_system()
-
-"""
+        print("ChatBot:", responses["default"])
